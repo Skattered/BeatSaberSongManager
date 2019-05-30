@@ -1,0 +1,17 @@
+﻿<Window x:Class="BeatSaberSongManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeatSaberSongManager"
+        mc:Ignorable="d"
+        Title="BeatSaberSongManager" Height="450" Width="800">
+    <Grid>
+        <DataGrid Margin="10,96,10,10" x:Name="dataGrid">
+        </DataGrid>
+        <Button Content="Delete" Height="43" Margin="0,31,10,0" VerticalAlignment="Top" Click="DeleteButtonOnClick" HorizontalAlignment="Right" Width="150"/>
+        <Button Content="Update" Margin="0,31,176,0" Click="UpdateButtonOnClick" HorizontalAlignment="Right" Width="153" Height="43" VerticalAlignment="Top"/>
+        <Button Content="Save" Height="43" Margin="35,31,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="131" Click="SaveButtonOnClick"/>
+        <Button Content="Select All Non-Protected" Height="43" Margin="185,31,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="152" Click="SelectAllButtonOnClick"/>
+    </Grid>
+</Window>
