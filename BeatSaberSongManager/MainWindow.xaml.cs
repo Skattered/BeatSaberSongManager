@@ -60,10 +60,17 @@ namespace BeatSaberSongManager
         private void UpdateSongCollection()
         {
             SongList = new List<Song>();
-            if (!System.IO.Directory.Exists(@"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\CustomSongs"))
+            try
             {
-                MessageBox.Show("Can't find beat saber dir!");
-                return;
+                if (!System.IO.Directory.Exists(@"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\CustomSongs"))
+                {
+                    MessageBox.Show("Can't find beat saber dir!");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
             var fileList = System.IO.Directory.GetFiles(@"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\CustomSongs", "info.json", SearchOption.AllDirectories);
             foreach (var file in fileList)
