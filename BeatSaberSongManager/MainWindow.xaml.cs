@@ -40,6 +40,10 @@ namespace BeatSaberSongManager
                     {
                         var dir = System.IO.Directory.GetParent(System.IO.Directory.GetParent(song.path).ToString());
                         Console.WriteLine(dir);
+                        if (dir.ToString() == @"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\CustomSongs")
+                        {
+                            dir = System.IO.Directory.GetParent(song.path);
+                        }
                         songsToDelete.Add(dir.ToString());
                     }
                 }
