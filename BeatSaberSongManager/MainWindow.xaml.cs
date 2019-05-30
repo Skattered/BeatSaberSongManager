@@ -26,7 +26,6 @@ namespace BeatSaberSongManager
         {
             InitializeComponent();
             UpdateSongCollection();
-            Console.WriteLine("Done");
         }
 
         private void DeleteButtonOnClick(object sender, RoutedEventArgs e)
@@ -61,6 +60,11 @@ namespace BeatSaberSongManager
         private void UpdateSongCollection()
         {
             SongList = new List<Song>();
+            if (!System.IO.Directory.Exists(@"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\CustomSongs"))
+            {
+                MessageBox.Show("Can't find beat saber dir!");
+                return;
+            }
             var fileList = System.IO.Directory.GetFiles(@"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\CustomSongs", "info.json", SearchOption.AllDirectories);
             foreach (var file in fileList)
             {
