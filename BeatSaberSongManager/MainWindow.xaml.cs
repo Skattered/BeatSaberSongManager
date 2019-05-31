@@ -22,9 +22,23 @@ namespace BeatSaberSongManager
     public partial class MainWindow : Window
     {
         public List<Song> SongList { get; set; } = new List<Song>();
+        private string FolderPath = @"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\CustomSongs";
         public MainWindow()
         {
             InitializeComponent();
+            if (System.IO.Directory.Exists(FolderPath))
+            {
+                //do nothing
+            }
+            else if (System.IO.Directory.Exists(@"C:\Program Files\Oculus\Software\Software\hyperbolic-magnetism-beat-saber\CustomSongs"))
+            {
+                FolderPath = @"C:\Program Files\Oculus\Software\Software\hyperbolic-magnetism-beat-saber\CustomSongs";
+            }
+            else
+            {
+                MessageBox.Show("Cannot find beat saber directory!");
+                Close();
+            }
             UpdateSongCollection();
         }
 
@@ -39,7 +53,7 @@ namespace BeatSaberSongManager
                     {
                         var dir = System.IO.Directory.GetParent(System.IO.Directory.GetParent(song.path).ToString());
                         Console.WriteLine(dir);
-                        if (dir.ToString() == @"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\CustomSongs")
+                        if (dir.ToString() == FolderPath)
                         {
                             dir = System.IO.Directory.GetParent(song.path);
                         }
@@ -60,19 +74,7 @@ namespace BeatSaberSongManager
         private void UpdateSongCollection()
         {
             SongList = new List<Song>();
-            try
-            {
-                if (!System.IO.Directory.Exists(@"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\CustomSongs"))
-                {
-                    MessageBox.Show("Can't find beat saber dir!");
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            var fileList = System.IO.Directory.GetFiles(@"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\CustomSongs", "info.json", SearchOption.AllDirectories);
+            var fileList = System.IO.Directory.GetFiles(FolderPath, "info.json", SearchOption.AllDirectories);
             foreach (var file in fileList)
             {
                 using (var sr = new StreamReader(file))
