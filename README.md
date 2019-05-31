@@ -13,4 +13,8 @@ Just a slightly easier way to delete a bunch of songs.
 ### Select all
  - Select anything that's not protected so you can mass delete quicker
 ### Delete
- - Confirmation box will pop up listing the folders that you're about to delete so you can verify it's all songs, hitting yes will delete them all.  
+ - Confirmation box will pop up listing the folders that you're about to delete so you can verify it's all songs, hitting yes will delete them all. You can also hit enter/esc if the list is too big and goes offscreen.
+
+
+## Download Here
+### [Releases](https://github.com/Skattered/BeatSaberSongManager/releases)
