@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeatSaberSongManager"
         mc:Ignorable="d"
-        Title="BeatSaberSongManager" Height="450" Width="800">
+        Title="BeatSaberSongManager" Height="577.297" Width="800">
     <Grid>
-        <DataGrid Margin="10,96,10,10" x:Name="dataGrid">
+        <DataGrid Margin="10,132,10,10" x:Name="dataGrid">
         </DataGrid>
         <Button Content="Delete" Height="43" Margin="0,31,10,0" VerticalAlignment="Top" Click="DeleteButtonOnClick" HorizontalAlignment="Right" Width="150"/>
         <Button Content="Update" Margin="0,31,176,0" Click="UpdateButtonOnClick" HorizontalAlignment="Right" Width="153" Height="43" VerticalAlignment="Top"/>
         <Button Content="Save" Height="43" Margin="35,31,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="131" Click="SaveButtonOnClick"/>
         <Button Content="Select All Non-Protected" Height="43" Margin="185,31,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="152" Click="SelectAllButtonOnClick"/>
+        <TextBox x:Name="pathTextBox" HorizontalAlignment="Left" Height="40" Margin="35,87,0,0" TextWrapping="Wrap" Text="{Binding FolderPath}" VerticalAlignment="Top" Width="581"/>
     </Grid>
 </Window>

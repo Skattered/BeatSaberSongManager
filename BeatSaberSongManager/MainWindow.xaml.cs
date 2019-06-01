@@ -22,10 +22,11 @@ namespace BeatSaberSongManager
     public partial class MainWindow : Window
     {
         public List<Song> SongList { get; set; } = new List<Song>();
-        private string FolderPath = @"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\CustomSongs";
+        public string FolderPath { get; set; } = @"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\CustomSongs";
         public MainWindow()
         {
             InitializeComponent();
+            pathTextBox.DataContext = this;
             if (System.IO.Directory.Exists(FolderPath))
             {
                 //do nothing
@@ -36,8 +37,7 @@ namespace BeatSaberSongManager
             }
             else
             {
-                MessageBox.Show("Cannot find beat saber directory!");
-                Close();
+                MessageBox.Show("Cannot find beat saber directory, please enter manually!");
             }
             UpdateSongCollection();
         }
