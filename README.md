@@ -1,10 +1,9 @@
 # BeatSaberSongManager
 
-Just a slightly easier way to delete a bunch of songs.
-
 ## Usage
  - Download rar from release
  - Extract, run exe
+ - If you change the path, hit update to reload songs
 
 ### Save
  - Saves current protected state of all songs to a .json file in the current app dir. The protected status will copy back over on launch
